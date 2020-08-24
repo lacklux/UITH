@@ -1,0 +1,19 @@
+{% extends 'Doctors/doctor_base.html' %}
+{% load static %}
+
+{% block content %}
+  
+  <div class="jumbotron alert alert-danger">
+
+    <h3>Are you sure you want to delete  {{item}} Assigned Nurse</h3>
+
+    <form action="{% url 'DeleteAssignNurse' item.id%}" method="post">
+        {% csrf_token %}
+
+        <a href="{% url 'ViewAssignedNurse'%}"><input type="menu" class="btn btn-warning" value="Cancel" name="" style="width: 70px;" id=""></a>
+        <input type="submit" class="btn btn-success" value="delete" name="" id="">
+    </form>
+
+  </div>
+
+{% endblock  %}

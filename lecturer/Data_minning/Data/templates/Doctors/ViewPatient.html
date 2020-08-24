@@ -1,0 +1,36 @@
+{% extends 'Doctors/doctor_base.html' %}
+{% load static %}
+
+{% block content %}
+  
+
+{% if AvailPatient %}
+<div class="jumbotron" style="background-color: white;border-radius:10px;">
+<table class="table table-responsive table-bordered table-hover">
+
+    <thead>
+        <tr>
+            <th>firstname</th>
+            <th>card no </th>
+            <th>date</th>
+            <th>symptoms</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    {% for patient in AvailPatient %}
+    <tbody>
+        <tr>
+            <td>{{patient.firstname}}</td>
+            <td>{{patient.card}}</td>
+            <td>{{patient.date_admitted}}</td>
+            <td>{{patient.symptoms}}</td>
+            <td><a href="{% url 'UpdatePatient' patient.id%}"><button class="btn btn-success"><span class="fa fa-edit"></span></button></a> </td>
+            <td> <a href="{% url 'DeletePatient' patient.id%}"><button class="btn btn-danger"><span class="fa fa-edit"></span></button></a></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+</div>
+{% endif %}
+{% endblock %}

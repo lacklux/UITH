@@ -1,0 +1,62 @@
+{% extends "Nurse/Nurse_base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<style>
+    th,td{
+        font-size: 16px;
+        font-weight: 5px;
+        font-family: 'Times New Roman', Times, serif;
+        text-shadow: 1px 1px rgb(174, 174, 180);
+        
+
+    }
+
+</style>
+
+
+<div class="col-lg-4" style="background-color: white;border-radius:10px;" >
+  
+
+<div>
+    <div>
+        <img src="{% static 'pictures/user.png'%}"  style="padding:10px;" alt="">
+    </div>
+    
+    <table class="table table-bordered table-responsive">
+
+        <thead>
+            <th>Username</th>
+            <td>{{nurse.username}}</td>
+            
+        </thead>
+
+        <thead>
+            <th>Firstname</th>
+            <td>{{nurse.firstname}}</td>
+            
+        </thead>
+
+        <thead>
+            <th>lastname</th>
+            <td>{{nurse.lastname}}</td>
+            
+        </thead>
+
+        <thead>
+            <th> Email</th>
+            <td>{{nurse.email}}</td>
+            
+        </thead>
+
+        
+
+
+    </table>
+</div>
+</div>
+
+
+{% endblock content %}

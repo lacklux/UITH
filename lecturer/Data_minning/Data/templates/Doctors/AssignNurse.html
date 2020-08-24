@@ -1,0 +1,16 @@
+{% extends 'Doctors/doctor_base.html' %}
+{% load static %}
+
+
+{% block content %}
+  
+
+<div class="jumbotron" style="background-color: white;border-radius:10px;">
+<form method="POST">
+    {% csrf_token %}
+    <h2>Assign Nurse</h2>
+    {{form.as_table}}
+    <input type="submit" class="btn btn-success " style="margin-top:10px;" value="submit" name="" id="">
+</form>
+</div>
+{% endblock  %}

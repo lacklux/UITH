@@ -1,0 +1,70 @@
+{% extends 'Doctors/doctor_base.html' %}
+{% load static %}
+
+
+{% block content %}
+  <style>
+      #box{
+          display: none;
+      }
+  </style>
+
+<!-- 
+<form >
+   
+    <h2>Register Nurse</h2>
+    {{form.as_table}}
+    <input type="submit" class="btn btn-success" name="" id="">
+
+</form> -->
+
+<div class="jumbotron" style="background-color: white;border-radius:10px;">
+    
+
+<form method="POST" class="form-horizontal" role="form">
+    <h3 style="color:rgb(5, 5, 46);text-shadow:1px 1px black;font-size:xx-large;margin-bottom:20px;margin-top:-20px;">Register Nurse</h3>
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="username" class="col-sm-2 control-label">Username</label>
+      <div class="col-sm-10">
+        {{form.username}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="firstname" class="col-sm-2 control-label">firstname</label>
+      <div class="col-sm-10">
+        {{form.firstname}}
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">lastname</label>
+        <div class="col-sm-10">
+            {{form.lastname}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="col-sm-2 control-label">email</label>
+        <div class="col-sm-10">
+            {{form.email}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+            {{form.password}}
+        </div>
+      </div>
+   
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-success">submit</button>&NonBreakingSpace;
+        <a href="{% url 'ViewNurse'%}"><input type="button" value="Cancel" class="btn btn-warning"> </a>
+    </div>
+    </div>
+
+</div>
+   
+{% endblock  %}

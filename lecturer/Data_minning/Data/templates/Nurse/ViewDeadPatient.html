@@ -1,0 +1,51 @@
+{% extends "Nurse/Nurse_dashboard.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if patient %}
+   
+    <div class="jumbotron" style="background-color: white;border-radius:10px;">
+
+   <h3 style="color:rgb(8, 8, 49);margin-top:-10px">My Dead Patient history</h3>
+  <table class="table table-hover table-responsive table-bordered">
+    <thead>
+         <tr>
+        <th>Firstname</th>
+        <th>lastname</th>
+        <th>Date admitted</th>        
+        <th>ward</th>
+        <th>card</th>
+        <th> Assigned nurse</th>
+        <th>Cause of death</th>
+        <th>Date of Death</th>
+      
+    </tr>
+    </thead>
+      
+    {% for pat in patient %}
+
+    <tr>
+        <td>{{pat.patient}}</td>
+        <td>{{pat.patient.lastname}}</td>
+        <td>{{pat.patient.date_admitted}}</td>
+        <td>{{pat.ward}}</td>
+        <td>{{pat.patient.card}}</td>
+        <td>{{pat.nurse}}</td>
+        <td>{{pat.patient.possible_diagnosis}}</td>
+        <td>{{pat.death_date}}</td>
+      
+    </tr>
+      
+    {% endfor %}
+</table>
+
+{% else %}
+<div class="jumbotron alert alert-success"> 
+  <h4> Superb! You have no dead Patient Record </h4>
+</div>
+</div>
+
+{% endif %}
+    
+{% endblock %}

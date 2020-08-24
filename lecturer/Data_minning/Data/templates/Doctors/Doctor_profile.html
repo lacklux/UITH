@@ -1,0 +1,80 @@
+{% extends "Doctors/doctor_base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<style>
+    th,td{
+        font-size: 16px;
+        font-weight: 5px;
+        font-family: 'Times New Roman', Times, serif;
+        text-shadow: 1px 1px rgb(174, 174, 180);
+        
+
+    }
+
+</style>
+
+
+<div class="col-lg-4" style="background-color: white;border-radius:10px;" >
+  
+
+<div>
+    <div>
+        <img src="{% static 'pictures/user.png'%}"  style="padding:10px;" alt="">
+    </div>
+    
+    <table class="table table-bordered table-responsive">
+
+        <thead>
+            <th>Username</th>
+            <td>{{doctor.username}}</td>
+            
+        </thead>
+
+        <thead>
+            <th>Firstname</th>
+            <td>{{doctor.first_name}}</td>
+            
+        </thead>
+
+        <thead>
+            <th>lastname</th>
+            <td>{{doctor.last_name}}</td>
+            
+        </thead>
+
+        <thead>
+            <th> Email</th>
+            <td>{{doctor.email}}</td>
+            
+        </thead>
+
+        <!-- <div class="">
+            <a href="{% url 'password_change'%}"><input type="submit" class="btn btn-warning" name="" value="Change Password" id=""></a>
+        
+        </div>
+              -->
+            
+        <div>
+            <a href="{% url 'UpdateDoctor' doctor.id%}"><input type="submit" style="margin:5px;"  class="btn btn-success" value="Update" name="" id=""></a>
+        </div>
+    
+
+
+    </table>
+</div>
+</div>
+<!-- 
+<div class="col-lg-4">
+<form  method="POST">
+
+    {{form.as_p}}
+    <input type="submit" name="submit" value="update" id="">
+
+
+</form>
+</div> -->
+
+{% endblock content %}

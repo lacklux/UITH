@@ -1,0 +1,40 @@
+{% extends 'Doctors/doctor_base.html' %}
+{% load static %}
+
+{% block content %}
+  
+
+
+
+<div class="jumbotron" style="background-color: white;border-radius:10px;">
+    {% if AssignedNurse%}
+<table class="table table-responsive table-bordered table-hover">
+
+    <thead>
+        <tr>     
+            <th>Nurse</th>
+            <th>Patient</th>
+            <th>ward</th>
+            <th>Date</th>
+             <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    {% for patient in AssignedNurse%}
+    <tbody>
+        <tr>
+            <td>{{patient.nurse}}</td>
+            <td>{{patient.patient}}</td>
+            <td>{{patient.ward}}</td>
+            <td>{{patient.date_added}}</td>
+   
+            <td><a href="{% url 'UpdateAssignNurse' patient.id%}"><button class="btn btn-success"><span class="fa fa-edit"></span></button></a> </td>
+            <td> <a href="{% url 'DeleteAssignNurse' patient.id%}"><button class="btn btn-danger"><span class="fa fa-plus"></span></button></a></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+{% endif %}
+</div>
+
+{% endblock %}

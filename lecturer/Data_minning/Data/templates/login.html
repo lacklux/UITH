@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+</style>
+<html> 
+
+
+
+<body> 
+
+
+<center style="height: 420px;">
+
+    <div class="container" style="width: 100%;max-width: 350px;margin-top:60px;
+    border-radius: 5px;margin-bottom:-60; background-color: rgba(250, 250, 252, 0.733);
+    box-shadow :5px 5px 5px 5px rgba(0, 0, 0, 0.342);" >
+        <h2 style="color: rgb(2, 2, 39);margin:20px;text-shadow:1px 2px rgba(0, 0, 0, 0.699)">Login</h2>
+        <hr style="color: rgb(5, 2, 32);height:1px;background-color:rgb(5, 2, 32)">
+        
+        
+
+
+        <form  method="POST" style="width: 100%;max-width: 350px;">
+                  {% csrf_token %}        
+   {% if msg %}      
+<div class="modal fade bs-example-modal-sm" tabindex="-1"  data-placement="bottom" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <h2 class="alert alert-danger">{{msg}}</h2>
+    </div>
+  </div>
+</div>
+
+               {% endif%}
+                    
+            <div class="input-group">
+                <span class="input-group-addon" style="background-color: rgb(2, 4, 31);">
+                    <i class="fa fa-user" style="color: rgb(247, 247, 250);"></i>
+    
+                </span>
+                <input type="text" class="form-control" id="username"  name="username" style="background-color: rgb(255, 255, 255);" placeholder="firstname" id="">
+    
+
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon" style="background-color: rgb(2, 4, 31);">
+                    <i class="fa fa-key" style="color: rgb(247, 247, 250);"></i>
+    
+                </span>
+                <input type="password" id="password"  style="background-color: rgb(255, 255, 255);" class="form-control" name="password"   placeholder="password" id="" >
+              
+            </div>
+
+            
+            <div>
+                <input type="submit" id="submit" class="btn btn-success btn btn-lg"
+                
+                data-toggle="modal" data-target=".bs-example-modal-sm"
+                style="background-color:rgb(13, 4, 59);color:white;margin: 10px;" value="submit" name="submit" id="submit">
+            </div>
+             <a href="{% url 'password_reset'%}"> Reset Password</a>
+        </form>
+
+    </div>
+</center>
+</body>
+
+
+</html>
+
+
+
+{% endblock  %}

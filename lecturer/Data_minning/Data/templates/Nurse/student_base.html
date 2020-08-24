@@ -1,0 +1,150 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no,shrink-to-fit=no">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="tutorial_one" />
+    <link href="{%static 'bootstrap/css/bootstrap.css'%}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{%static 'bootstrap/css/style.css'%}" rel="stylesheet" type="text/css" media="all" />
+
+	<link href="{%static 'bootstrap/css/font-awesome.css'%}" rel="stylesheet">
+	
+    
+    <title></title>
+</head>
+<style>
+@media screen and(max-width:768px) {
+  #content{width:50%;max-width:300px;}
+  
+}
+ @media screen and (max-width:1000px){
+   #box{width: 10%;max-width: 10px;}
+   #content{width:100%;max-width:300px;}
+   #content_div{width:100%;max-width:400px;}
+   
+ }
+</style>
+<body>  
+
+<nav class="navbar navbar-inverse" style="background-color:rgb(5, 3, 47);">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-brand " style="margin-top:20px;">
+          <a class="" href="#" style="color:white;">Dashboard</a>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-left" style="margin:10px;">
+<!--          
+          <li class=""><a href="#" style="padding-left: 20px;">Home</a></li> -->
+          
+          <!-- <li><a href="{% url 'admin:index' %}">Admin</a></li> -->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{request.user.username}}</a></li>
+          <li><a href="{%url 'logout' %}"  data-toggle="tooltip" data-placement="bottom" title="logout"><span class="glyphicon glyphicon-off"></span> logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav> 
+
+
+
+  <div class="container" >
+
+   <div class="row">
+    <div  class="col-xs-4 col-sm-5 col-md-8  "  style="background-color:rgb(5, 3, 47);width:250px; margin-left:-70px;">
+
+        <div class="nav side-nav">
+
+            <div style="margin-left: 20px;">
+                <img src="{%static 'pictures/default.png'%}" alt="" style="max-width: 100%;width:100px;height:150px;" class="img-responsive ">
+            </div>
+
+            <nav class="nav navbar-fixed">
+
+                <ul style="color:white;list-style-type:none">
+                    <hr style="background-color: white;">
+                    <a href="#" style="color:white;"> <li style="margin-left:20px"> <span class="fa fa-user"></span> Profile </li></a>
+                    <hr style="background-color: white;">
+                    <a href="{% url 'AddNurse'%}"  style="color:white"> <li style="margin-left:20px"><span class="fa fa-plus"></span> Add Nurse </li></a>
+                    <hr style="background-color: white;">
+                    <a href="{% url 'AddPatient'%}" style="color:white;"> <li style="margin-left:20px"><span class="fa fa-plus"></span> Add Patient </li></a>
+                    <hr style="background-color: white;">
+                    <a href="{% url 'ViewNurse'%}" style="color:white;"> <li style="margin-left:20px"><span class="fa fa-dashboard"></span> Available Nurse </li></a>
+                    <hr style="background-color: white;">
+                    <a href="{% url 'ViewPatient' %}" style="color:white;"> <li style="margin-left:20px"><span class="fa fa-dashboard"></span> Available Patient </li></a>
+                    <hr style="background-color: white;">
+                    <a href="{% url 'AssignNurse' %}"  style="color:white;"> <li style="margin-left:20px"><span class="fa fa-plus"></span> Assign Nurse </li></a>
+                </ul>
+
+
+            </nav>
+
+        </div>
+
+
+    </div>
+
+
+<div class="col-xs-10 col-sm-8 col-sm-push-1" id="content_div" style="margin-left:20px;">
+
+
+<div class="row" style="margin-top:20px;" id="box">
+  
+  <div class="col-xs-6 col-md-6 jumbotron" style="background-color:rgb(17, 17, 63); margin-right: 30px;border: 2px groove rgba(3, 3, 44, 0.849);">
+   
+    <h3 style="color:white">User</h3>
+    <hr>
+    <h3 style="color:white;"><span class="fa fa-xing"></span>Welcome {{request.user.username}}</h3>
+  </div>
+
+  <div class="col-xs-6 col-md-5 jumbotron" style="background-color:rgb(17, 17, 63); margin-right: 30px;border: 2px groove rgba(3, 3, 44, 0.849);">
+   
+    <h3 style="color:white">Notification</h3>
+    <hr>
+    <h3 style="color:white;"><span class="fa fa-bell badge">5</span> messages</h3>
+  </div>
+  <div class="clearfix visible-xs-block"></div>
+</div>
+
+
+<div class="row" style="margin: 10px; " id="div_body">
+  <div class="jumbotron col-xs-12 col-md-8" id="content">
+    
+ 
+
+{% block content %}
+  
+
+
+
+{% endblock  %}
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<div class="clearfix visible-xs-block"></div>
+
+
+
+
+    <script type="text/javascript" src="{%static 'bootstrap/js/jquery-2.1.4.min.js'%}"></script>
+<script src="{%static 'bootstrap/js/jquery.waypoints.min.js'%}"></script>
+	<script src="{%static 'bootstrap/js/jquery.countup.js'%}"></script>
+	<script type="text/javascript" src="{%static 'bootstrap/js/bootstrap.js'%}"></script>
+
+
+
+</body>
+</html>

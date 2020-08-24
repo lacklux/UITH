@@ -1,0 +1,51 @@
+{% extends "Nurse/Nurse_base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if patient %}
+   
+    <div class="jumbotron" style="background-color: white;border-radius:10px;">
+
+   <h3 style="color:rgb(8, 8, 49);margin-top:-10px">My Discharge Patient Record</h3>
+  <table class="table table-hover table-responsive table-bordered">
+    <thead>
+         <tr>
+        <th>Firstname</th>
+        <th>lastname</th>
+        <th>Date admitted</th>        
+        <th>ward</th>
+        <th>card</th>
+        <th>Assigned nurse</th>
+        <th>diagnosis</th>
+       
+      
+    </tr>
+    </thead>
+      
+    {% for pat in patient %}
+
+    <tr>
+        <td>{{pat.patient.firstname}}</td>
+        <td>{{pat.patient.lastname}}</td>
+        <td>{{pat.patient.date_admitted}}</td>
+        <td>{{pat.ward}}</td>
+        <td>{{pat.patient.card}}</td>
+        <td>{{pat.nurse}}</td>
+        <td>{{pat.patient.possible_diagnosis}}</td>
+       
+      
+    </tr>
+      
+    {% endfor %}
+</table>
+
+{% else %}
+<div class="jumbotron alert alert-success"> 
+  <h4> No discharged Patient Record </h4>
+</div>
+</div>
+
+{% endif %}
+    
+{% endblock %}

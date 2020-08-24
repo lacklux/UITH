@@ -1,0 +1,49 @@
+{% extends 'Doctors/doctor_base.html' %}
+{% load static %}
+
+{% block content %}
+  
+
+
+
+{% if AvailNurse %}
+ 
+<div class="jumbotron" style="background-color: white;border-radius:10px;">
+<table class="table table-hover table-responsive table-bordered">
+    <thead>
+        
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    
+{% for nurse in AvailNurse  %}
+    <tbody>
+        
+      <tr>
+        <td>{{nurse.firstname}}</td>
+        <td>{{nurse.lastname}}</td>
+        <td>{{nurse.email}}</td>
+       
+        <td>
+            <a href="{% url 'UpdateNurse' nurse.id %} " ><button class="btn btn-success "><span class="fa fa-edit"></span>Edit</button></a>
+        </td>
+
+        <td>
+          <a href="{% url 'DeleteNurse' nurse.id%}"><button class="btn btn-danger "><span class="fa fa-edit"></span>delete</button></a>
+        </td>
+      </tr>
+     
+    </tbody>
+    {% endfor %}
+  </table>
+</div>
+  
+
+ 
+{% endif %}
+{% endblock %}

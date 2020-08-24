@@ -1,0 +1,17 @@
+{% extends 'Nurse/Nurse_base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="jumbotron alert alert-danger" style="border-radius: 10px;">
+<h3>Are you sure  Patient {{item}} is dead</h3>
+   <form action="{% url 'DeadPNurse' item.id%}" method="post">
+    {% csrf_token %}
+    <a href="{% url 'MyPatient'%}"><input type="button" class="btn btn-danger" value="Cancel" name="Cancel" id=""></a>
+    <input type="submit" class="btn btn-success " value="Submit" name="submit" id="submit">
+  </form>
+
+</div>
+{% endblock content %}
+  
