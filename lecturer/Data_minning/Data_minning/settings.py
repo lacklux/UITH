@@ -24,9 +24,9 @@ STATICFILES_DIR = os.path.join(BASE_DIR,'static')
 SECRET_KEY = 'x5fsk3w^d!@1no!z^n2g5%o4)*#2#mu&4o#a(j5*l)@za35#f&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lacklux.herokuapp.com','127.0.0.1']
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
